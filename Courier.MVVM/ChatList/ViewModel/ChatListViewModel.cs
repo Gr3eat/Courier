@@ -15,10 +15,4 @@ internal class ChatListViewModel : IChatListViewModel
 	{
 		_clients = clients;
 	}
-
-
-	public Page CreatePage()
-	{
-		throw new NotImplementedException();
-	}
 }

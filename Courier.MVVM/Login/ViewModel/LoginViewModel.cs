@@ -7,8 +7,7 @@ using System.Windows.Input;
 
 namespace Courier.MVVM.Login.ViewModel;
 
-
-
+[View(typeof(LoginPage))]
 internal class LoginViewModel : ILoginViewModel
 {
 
@@ -23,12 +22,4 @@ internal class LoginViewModel : ILoginViewModel
 	public string Username { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 	public string Password { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 	public ICommand LoginCommand { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-
-	public Page CreatePage()
-	{
-		return new LoginPage()
-		{
-			BindingContext = this
-		};
-	}
 }
