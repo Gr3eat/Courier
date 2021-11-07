@@ -53,6 +53,23 @@
 		<PackageReference Include="Microsoft.Graphics.Win2D" Version="1.0.0.26-experimental1" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <ProjectReference Include="..\Courier.MVVM\Courier.MVVM.csproj" />
+	  <ProjectReference Include="..\EasyIOC\EasyIOC.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+  	<Compile Update="MainPage.xaml.cs">
+	    <DependentUpon>MainPage.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="MainPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
+
 	<PropertyGroup Condition="$(TargetFramework.Contains('-windows'))">
 		<OutputType>WinExe</OutputType>
 		<RuntimeIdentifier>win-x64</RuntimeIdentifier>

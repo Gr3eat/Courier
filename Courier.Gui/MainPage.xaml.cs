@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Threading.Tasks;
+using System.Windows.Input;
 using Microsoft.Maui.Controls;
 using Microsoft.Maui.Essentials;
 
@@ -10,15 +12,16 @@ namespace Courier.Gui
 
 		public MainPage()
 		{
+			BindingContext = this;
 			InitializeComponent();
 		}
 
-		private void OnCounterClicked(object sender, EventArgs e)
+		public Command Navigate => new(async () => await Navigation.PushAsync(new Login.LoginPage()));
+
+		private async void OnCounterClicked(object sender, EventArgs e)
 		{
 			count++;
-			CounterLabel.Text = $"Current count: {count}";
-
-			SemanticScreenReader.Announce(CounterLabel.Text);
+			await Navigation.PushAsync(new Login.LoginPage());
 		}
 	}
 }

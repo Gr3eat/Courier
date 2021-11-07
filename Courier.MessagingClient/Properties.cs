@@ -1,0 +1,3 @@
+﻿using EasyIOC;
+
+[assembly: InstallAllWithEasyIOC]

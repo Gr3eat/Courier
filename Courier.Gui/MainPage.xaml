@@ -35,7 +35,7 @@
                 FontAttributes="Bold"
                 Grid.Row="3"
                 SemanticProperties.Hint="Counts the number of times you click"
-                Clicked="OnCounterClicked"
+                Command="{Binding Navigate}"
                 HorizontalOptions="Center" />
 
             <Image Grid.Row="4"
