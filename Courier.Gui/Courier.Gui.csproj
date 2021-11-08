@@ -54,6 +54,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <ProjectReference Include="..\Courier.MessagingClient.Facebook\Courier.MessagingClient.Facebook.csproj" ReferenceOutputAssembly="True" TreatAsUsed="true" />
+	  <ProjectReference Include="..\Courier.MessagingClient.Maui\Courier.MessagingClient.Maui.csproj" />
 	  <ProjectReference Include="..\Courier.MVVM\Courier.MVVM.csproj" />
 	  <ProjectReference Include="..\EasyIOC\EasyIOC.csproj" />
 	</ItemGroup>

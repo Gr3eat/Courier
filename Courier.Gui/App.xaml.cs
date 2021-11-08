@@ -1,4 +1,6 @@
-﻿using Courier.MVVM;
+﻿using Courier.MessagingClient.Facebook;
+using Courier.MessagingClient.Xamarin;
+using Courier.MVVM;
 using EasyIOC;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -22,7 +24,10 @@ namespace Courier.Gui
 		private static IServiceProvider InstallServices()
 		{
 			var collection = new ServiceCollection();
-			collection.WithEasyIoc(Assembly.GetExecutingAssembly());
+			collection
+				.WithEasyIoc(Assembly.GetExecutingAssembly())
+				.WithMauiCredentials()
+				.WithFacebookMessenger();
 			return collection.BuildServiceProvider();
 		}
 	}

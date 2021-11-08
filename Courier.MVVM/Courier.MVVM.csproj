@@ -15,7 +15,17 @@
   </PropertyGroup>
 
 	<ItemGroup>
+	  <MauiXaml Remove="Login\View\PickLoginScreenView.xaml" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <PackageReference Include="System.Linq.Async" Version="5.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Page Include="Login\View\PickLoginScreenView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </Page>
 	</ItemGroup>
 
 	<ItemGroup>
@@ -28,11 +38,17 @@
 	  <Compile Update="Login\View\LoginPage.xaml.cs">
 	    <DependentUpon>Login\View\LoginPage.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="Login\View\PickLoginScreenPage.xaml.cs">
+	    <DependentUpon>PickLoginScreenPage.xaml</DependentUpon>
+	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
 	  <MauiXaml Update="Login\View\LoginPage.xaml">
 	    <SubType>Designer</SubType>
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Login\View\PickLoginScreenPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

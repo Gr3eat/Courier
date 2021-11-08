@@ -6,9 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-
   <ItemGroup>
-    <ProjectReference Include="..\EasyIOC\EasyIOC.csproj" />
+    <ProjectReference Include="..\Courier.MessagingClient\Courier.MessagingClient.csproj" />
   </ItemGroup>
 
 </Project>

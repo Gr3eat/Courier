@@ -4,5 +4,5 @@ namespace Courier.MVVM.Login.ViewModel;
 
 internal interface IPickLoginScreenViewModel : IViewModel
 {
-	IEnumerable<string> SuportedLogins { get; }
+	IEnumerable<LoginProviderViewModel> SuportedLogins { get; }
 }

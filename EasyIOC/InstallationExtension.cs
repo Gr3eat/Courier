@@ -35,8 +35,9 @@ namespace EasyIOC
 				yield return assembly;
 				addedAssemblies.Add(assembly);
 				foreach (var a in assembly.GetReferencedAssemblies())
-					foreach (var ass in GetTransitivelyDependantAssemblies(Assembly.Load(a), addedAssemblies))
-						yield return ass;
+					if (!a.Name.StartsWith("System") && !a.Name.StartsWith("Microsoft"))
+						foreach (var ass in GetTransitivelyDependantAssemblies(Assembly.Load(a), addedAssemblies))
+							yield return ass;
 			}
 		}
 	}

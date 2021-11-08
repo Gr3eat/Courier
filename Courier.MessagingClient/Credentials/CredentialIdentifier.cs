@@ -2,12 +2,12 @@
 
 public struct CredentialIdentifier
 {
-	internal CredentialIdentifier(string platform, string identifier)
+	public CredentialIdentifier(CredentialSource platform, string identifier)
 	{
 		Platform = platform;
 		Identifier = identifier;
 	}
 
-	public string Platform { get; }
+	public CredentialSource Platform { get; }
 	public string Identifier { get; }
 }

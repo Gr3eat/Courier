@@ -1,19 +1,34 @@
 ﻿using Courier.MessagingClient;
+using Courier.MVVM.Login.View;
 using EasyIOC.CodeGen;
+using Microsoft.Maui.Controls;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Courier.MVVM.Login.ViewModel;
 
+[View(typeof(PickLoginScreenPage), IsNavigation = true)]
 internal class PickLoginScreenViewModel : IPickLoginScreenViewModel
 {
 	private readonly ISuportedLoginsProvider _suportedLoginsProvider;
+	private readonly ILoginViewModelFactory _loginViewModelFactory;
+	private readonly INavigation _navigator;
 
 	[Factory]
 	public PickLoginScreenViewModel(ISuportedLoginsProvider suportedLoginsProvider)
 	{
 		_suportedLoginsProvider = suportedLoginsProvider;
+		SuportedLogins = _suportedLoginsProvider.SuportedCredentialSources.Select(x => new LoginProviderViewModel(x)).ToArray();
+		foreach(var login in SuportedLogins)
+			login.Clicked += LoginClicked;
 	}
 
-	public IEnumerable<string> SuportedLogins { get; }
+	private async void LoginClicked(LoginProviderViewModel login)
+	{
+		var vm = _loginViewModelFactory.Create(login.Credential);
+		await _navigator.PushAsync(vm.CreatePage());
+	}
+
+	public IEnumerable<LoginProviderViewModel> SuportedLogins { get; }
 
 }
