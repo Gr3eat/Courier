@@ -11,10 +11,21 @@ namespace Courier.MVVM;
 internal class ApplicationEntryPoint : IApplicationEntryPoint
 {
 	private readonly ICredentialStore _credentialStore;
-	private readonly ILoginViewModelFactory _loginViewModelFactory;
 	private readonly IPickLoginScreenViewModelFactory _pickLoginScreenViewModelFactory;
 	private readonly IChatListViewModelFactory _chatListViewModelFactory;
 	private readonly IMessagingClientFactory _messagingClientFactory;
+
+	public ApplicationEntryPoint(
+		ICredentialStore credentialStore,
+		IPickLoginScreenViewModelFactory pickLoginScreenViewModelFactory,
+		IChatListViewModelFactory chatListViewModelFactory,
+		IMessagingClientFactory messagingClientFactory)
+	{
+		_credentialStore = credentialStore;
+		_pickLoginScreenViewModelFactory = pickLoginScreenViewModelFactory;
+		_chatListViewModelFactory = chatListViewModelFactory;
+		_messagingClientFactory = messagingClientFactory;
+	}
 
 	public async Task<IViewModel> GetEntryVmAsync(CancellationToken token)
 	{

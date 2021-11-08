@@ -24,8 +24,8 @@ public static class ViewModelExtensions
 {
 	public static Page CreatePage(this IViewModel viewModel)
 	{
-		var attribute = viewModel.GetType().GetCustomAttribute<ViewAttribute>();
-		var page = (Page)Activator.CreateInstance(attribute.PageType);
+		var attribute = viewModel.GetType().GetCustomAttribute<ViewAttribute>()!;
+		var page = (Page)Activator.CreateInstance(attribute.PageType)!;
 		page.BindingContext = viewModel;
 		return page;
 	}

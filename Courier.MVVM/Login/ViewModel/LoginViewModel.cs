@@ -12,11 +12,15 @@ internal class LoginViewModel : ILoginViewModel
 {
 
 	private readonly ICredentialStore _credentialStore;
+	private readonly CredentialSource _credentialSource;
 
 	[Factory]
-	public LoginViewModel(ICredentialStore credentialStore)
+	public LoginViewModel(
+		ICredentialStore credentialStore,
+		[Parameter] CredentialSource credentialSource)
 	{
 		_credentialStore = credentialStore;
+		_credentialSource = credentialSource;
 	}
 
 	public string Username { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }

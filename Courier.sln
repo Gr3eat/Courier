@@ -5,15 +5,15 @@ VisualStudioVersion = 17.0.31611.283
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Courier.Gui", "Courier.Gui\Courier.Gui.csproj", "{14F670F3-EA7E-4647-A57B-444E3D7F9904}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Courier.MessagingClient", "Courier.MessagingClient\Courier.MessagingClient.csproj", "{DF33F0DD-22A9-4543-BDDD-0D38C02C07F6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Courier.MessagingClient", "Courier.MessagingClient\Courier.MessagingClient.csproj", "{DF33F0DD-22A9-4543-BDDD-0D38C02C07F6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyIOC", "EasyIOC\EasyIOC.csproj", "{143F6E14-D147-41D4-A9C3-C85AE97B30B6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyIOC", "EasyIOC\EasyIOC.csproj", "{143F6E14-D147-41D4-A9C3-C85AE97B30B6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Courier.Configuration", "Courier.Configuration\Courier.Configuration.csproj", "{E1371476-A336-426C-8842-6D0CE0FF85E9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Courier.Configuration", "Courier.Configuration\Courier.Configuration.csproj", "{E1371476-A336-426C-8842-6D0CE0FF85E9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Courier.MVVM", "Courier.MVVM\Courier.MVVM.csproj", "{0989BC31-6145-47B6-B4E2-66C1C5F280EA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Courier.MVVM", "Courier.MVVM\Courier.MVVM.csproj", "{0989BC31-6145-47B6-B4E2-66C1C5F280EA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyIOC.CodeGen", "EasyIOC.CodeGen\EasyIOC.CodeGen.csproj", "{5DCBD4DD-CE2C-4CF5-BE56-840DE2BD71BC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyIOC.CodeGen", "EasyIOC.CodeGen\EasyIOC.CodeGen.csproj", "{5DCBD4DD-CE2C-4CF5-BE56-840DE2BD71BC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -11,24 +11,33 @@ namespace EasyIOC
 	{
 		public static IServiceCollection WithEasyIoc(this IServiceCollection collection, Assembly installingAssembly)
 		{
-			var installers = GetTransitivelyDependantAssemblies(installingAssembly)
-				.Distinct()
-				.SelectMany(x => x.GetExportedTypes())
-				.Where(x => !x.IsAbstract && x.GetInterfaces().Any(typeof(IInstaller).IsAssignableFrom))
-				.Select(Activator.CreateInstance)
-				.Cast<IInstaller>();
-			foreach (var installer in installers)
+			var assemblies = GetTransitivelyDependantAssemblies(installingAssembly)
+				.Distinct().ToArray();
+			var installers = assemblies
+				.SelectMany(x => x.ExportedTypes)
+				.Where(typeof(IInstaller).IsAssignableFrom)
+				.Where(x => x.IsClass)
+				.ToArray();
+			foreach (var installer in installers.Select(Activator.CreateInstance).Cast<IInstaller>())
 				installer.Install(collection);
+			//foreach(var assembly in assemblies)
+			//	if(assembly.GetCustomAttribute<InstallAllWithEasyIOCAttribute>() != null)
+			//		foreach(var type in assembly.GetTypes())
 			return collection;
 		}
 
 
-		private static IEnumerable<Assembly> GetTransitivelyDependantAssemblies(Assembly assembly)
+		private static IEnumerable<Assembly> GetTransitivelyDependantAssemblies(Assembly assembly, HashSet<Assembly>? addedAssemblies = null)
 		{
-			yield return assembly;
-			foreach (var a in assembly.GetReferencedAssemblies())
-				foreach (var ass in GetTransitivelyDependantAssemblies(assembly))
-					yield return ass;
+			if (addedAssemblies is null || !addedAssemblies.Contains(assembly))
+			{
+				addedAssemblies ??= new HashSet<Assembly>();
+				yield return assembly;
+				addedAssemblies.Add(assembly);
+				foreach (var a in assembly.GetReferencedAssemblies())
+					foreach (var ass in GetTransitivelyDependantAssemblies(Assembly.Load(a), addedAssemblies))
+						yield return ass;
+			}
 		}
 	}
 }

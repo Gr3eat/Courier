@@ -2,7 +2,7 @@
 
 namespace Courier.MVVM.Login.ViewModel;
 
-internal interface ILoginViewModel : IViewModel
+public interface ILoginViewModel : IViewModel
 {
 	string Username { get; set; }
 	string Password { get; set; }
