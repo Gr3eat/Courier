@@ -8,10 +8,14 @@
              >
 
     <ScrollView>
-        <Grid RowSpacing="25" RowDefinitions="*,Auto,Auto,Auto,*"
-              Padding="{OnPlatform iOS='30,60,30,30', Default='30'}">
+        <StackLayout>
 
-            <Entry />
-        </Grid>
+            <Label>Username</Label>
+            <Entry TextColor="{DynamicResource PrimaryColor}" Text="{Binding Username}" />
+
+            <Label>Password</Label>
+            <Entry TextColor="{DynamicResource PrimaryColor}"  Text="{Binding Password}"/>
+            <Button Text="Login" Command="{Binding LoginCommand}"/>
+        </StackLayout>
     </ScrollView>
 </ContentPage>

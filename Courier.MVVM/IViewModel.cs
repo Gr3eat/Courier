@@ -1,12 +1,13 @@
 ﻿using Microsoft.Maui.Controls;
 using System;
+using System.ComponentModel;
 using System.Reflection;
 
 namespace Courier.MVVM;
 
-public interface IViewModel
+public interface IViewModel : INotifyPropertyChanged
 {
-	INavigation Navigation { get; set; }
+	INavigation? Navigation { get; set; }
 }
 
 

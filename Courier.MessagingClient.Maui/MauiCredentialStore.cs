@@ -8,7 +8,7 @@ using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Courier.MessagingClient.Xamarin;
+namespace Courier.MessagingClient.Maui;
 
 internal class MauiCredentialStore : ICredentialStore
 {

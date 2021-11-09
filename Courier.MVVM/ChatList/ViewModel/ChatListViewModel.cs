@@ -3,6 +3,7 @@ using EasyIOC.CodeGen;
 using Microsoft.Maui.Controls;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace Courier.MVVM.ChatList.ViewModel;
 
@@ -16,5 +17,7 @@ internal class ChatListViewModel : IChatListViewModel
 		_clients = clients;
 	}
 
-	public INavigation Navigation { get; set; }
+	public INavigation? Navigation { get; set; }
+
+	public event PropertyChangedEventHandler? PropertyChanged;
 }

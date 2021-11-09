@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.Serialization;
 
-namespace Courier.MessagingClient.Xamarin;
+namespace Courier.MessagingClient.Maui;
 
 [Serializable]
 internal class MauiCredentialStoragePermissionDeniedException : Exception

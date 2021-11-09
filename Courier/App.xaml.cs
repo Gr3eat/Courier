@@ -1,5 +1,5 @@
 ﻿using Courier.MessagingClient.Facebook;
-using Courier.MessagingClient.Xamarin;
+using Courier.MessagingClient.Maui;
 using Courier.MVVM;
 using EasyIOC;
 using Microsoft.Extensions.DependencyInjection;

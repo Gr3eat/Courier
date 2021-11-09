@@ -1,8 +1,12 @@
-﻿using Courier.Gui.Login;
+﻿using AsyncAwaitBestPractices.MVVM;
+using Courier.Gui.Login;
 using Courier.MessagingClient;
 using EasyIOC.CodeGen;
 using Microsoft.Maui.Controls;
 using System;
+using System.ComponentModel;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace Courier.MVVM.Login.ViewModel;
@@ -21,10 +25,21 @@ internal class LoginViewModel : ILoginViewModel
 	{
 		_credentialStore = credentialStore;
 		_credentialSource = credentialSource;
+		LoginCommand = new AsyncCommand(Login);
 	}
 
-	public string Username { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-	public string Password { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-	public ICommand LoginCommand { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-	public INavigation Navigation { get; set; }
+	private async Task Login()
+	{
+		Result = await _credentialStore.GetCredentialAsync(new CredentialIdentifier(_credentialSource, Label), CancellationToken.None);
+		await Navigation.PopAsync(true);
+	}
+
+	public ICommand LoginCommand { get; }
+	public INavigation? Navigation { get; set; }
+	public ICredential? Result { get; private set; }
+	public string Username { get; set; }
+	public string Password { get; set; }
+	public string Label { get; set; }
+
+	public event PropertyChangedEventHandler? PropertyChanged;
 }

@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 
-namespace Courier.MessagingClient.Xamarin;
+namespace Courier.MessagingClient.Maui;
 
 public static class InstallerExtension
 {
