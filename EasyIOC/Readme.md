@@ -3,7 +3,9 @@ This is an IOC library, automating the process of building the ServiceProvider, 
 EasyIOC uses Castle.Windsor-style installers and attributes to automatically register all services from all application assemblies.
 This means, that the programmer, doesn't have to manuall call an installation extension method for each library.
 
-
+## How to use?
+There are two ways of installing your library with EasyIOC.
+You should consider, 
 
 ## Why is it in the Courier repository?
 Currently, Easy IOC is not mature enough to be an external dependency.
