@@ -2,7 +2,7 @@
 using Microsoft.Maui;
 using Microsoft.Maui.Hosting;
 
-namespace Courier.Gui
+namespace Courier
 {
 	[Register("AppDelegate")]
 	public class AppDelegate : MauiUIApplicationDelegate

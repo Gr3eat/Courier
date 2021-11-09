@@ -55,11 +55,11 @@ internal class {group.Key}Factory : I{group.Key}Factory
 		private string GenerateFieldsAndConstructor(IEnumerable<ConstructorDeclarationSyntax> group)
 		{
 			var paramterTypes = group.SelectMany(x => x.ParameterList.Parameters).Where(IsDependency).Select(x => x.Type).Distinct();
-			return $"{string.Join(";\n", paramterTypes.Select(x => $"private readonly {x} _{x};"))}\n"
+			return $"{string.Join("\n", paramterTypes.Select(x => $"private readonly {x} _{x};"))}\n"
 				+
 				$@"public {group.First().Identifier}Factory({string.Join(", ", paramterTypes.Select(x => $"{x} {x.ToString().Replace("<", "_").Replace(">", "_")}"))})
 {{
-	{string.Join(";\n", paramterTypes.Select(x => $"_{x.ToString().Replace("<", "_").Replace(">", "_")} = {x.ToString().Replace("<", "_").Replace(">", "_")};"))}
+	{string.Join("\n", paramterTypes.Select(x => $"_{x.ToString().Replace("<", "_").Replace(">", "_")} = {x.ToString().Replace("<", "_").Replace(">", "_").Replace(";","")};"))}
 }}";
 		}
 

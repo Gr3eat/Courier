@@ -25,7 +25,7 @@ internal class ApplicationEntryPoint : IApplicationEntryPoint
 
 	public async Task<IViewModel> GetEntryVmAsync(CancellationToken token)
 	{
-		var credentials = await _credentialStore.GetStoredCredentialsAsync(token);
+		var credentials = await _credentialStore.GetStoredCredentialsAsync(token).ConfigureAwait(false);
 		if (credentials.Any())
 			return _chatListViewModelFactory
 				.Create(

@@ -7,13 +7,13 @@
   IgnorableNamespaces="uap rescap">
 
   <Identity
-    Name="Courier-GUI"
+    Name="6431CB34-848B-4D1C-8173-10BC1ED890E4"
     Publisher="CN=User Name"
     Version="1.0.0.0" />
 
   <Properties>
-    <DisplayName>Courier.Gui</DisplayName>
-    <PublisherDisplayName>Gr3at</PublisherDisplayName>
+    <DisplayName>Courier</DisplayName>
+    <PublisherDisplayName>Microsoft</PublisherDisplayName>
     <Logo>Assets\appiconStoreLogo.png</Logo>
   </Properties>
 
@@ -31,8 +31,8 @@
       Executable="$targetnametoken$.exe"
       EntryPoint="$targetentrypoint$">
       <uap:VisualElements
-        DisplayName="Courier.Gui"
-        Description="Courier.Gui"
+        DisplayName="Courier"
+        Description="Courier"
         BackgroundColor="transparent"
         Square150x150Logo="Assets\appiconMediumTile.png"
         Square44x44Logo="Assets\appiconLogo.png">
@@ -40,7 +40,7 @@
           Wide310x150Logo="Assets\appiconWideTile.png"
           Square71x71Logo="Assets\appiconSmallTile.png"
           Square310x310Logo="Assets\appiconLargeTile.png"
-          ShortName="Courier.Gui">
+          ShortName="Courier">
           <uap:ShowNameOnTiles>
             <uap:ShowOn Tile="square150x150Logo"/>
             <uap:ShowOn Tile="wide310x150Logo"/>

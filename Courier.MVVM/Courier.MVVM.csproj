@@ -1,56 +1,55 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-	<PropertyGroup>
-    <TargetFrameworks>net6.0;net6.0-ios;net6.0-android;net6.0-maccatalyst</TargetFrameworks>
+  <PropertyGroup>
+    <TargetFrameworks>net6.0;net6.0-android;net6.0-ios;net6.0-maccatalyst</TargetFrameworks>
     <TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows')) and '$(MSBuildRuntimeType)' == 'Full'">$(TargetFrameworks);net6.0-windows10.0.19041</TargetFrameworks>
-    <TargetPlatformMinVersion Condition="$(TargetFramework.Contains('-windows'))">10.0.17763.0</TargetPlatformMinVersion>
     <UseMaui>true</UseMaui>
     <SingleProject>true</SingleProject>
 
     <SupportedOSPlatformVersion Condition="'$(TargetFramework)' == 'net6.0-ios'">14.2</SupportedOSPlatformVersion>
     <SupportedOSPlatformVersion Condition="'$(TargetFramework)' == 'net6.0-maccatalyst'">14.0</SupportedOSPlatformVersion>
     <SupportedOSPlatformVersion Condition="'$(TargetFramework)' == 'net6.0-android'">21.0</SupportedOSPlatformVersion>
-    <SupportedOSPlatformVersion Condition="$(TargetFramework.Contains('-windows'))">10.0.18362.0</SupportedOSPlatformVersion>
-
+    <SupportedOSPlatformVersion Condition="$(TargetFramework.Contains('-windows'))">10.0.17763.0</SupportedOSPlatformVersion>
+    <TargetPlatformMinVersion Condition="$(TargetFramework.Contains('-windows'))">10.0.17763.0</TargetPlatformMinVersion>
   </PropertyGroup>
 
-	<ItemGroup>
-	  <MauiXaml Remove="Login\View\PickLoginScreenView.xaml" />
-	</ItemGroup>
+  <ItemGroup>
+    <MauiXaml Remove="Login\View\PickLoginScreenView.xaml" />
+  </ItemGroup>
 
-	<ItemGroup>
-	  <PackageReference Include="System.Linq.Async" Version="5.0.0" />
-	</ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="System.Linq.Async" Version="5.0.0" />
+  </ItemGroup>
 
-	<ItemGroup>
-	  <Page Include="Login\View\PickLoginScreenView.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </Page>
-	</ItemGroup>
+  <ItemGroup>
+    <Page Include="Login\View\PickLoginScreenView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
 
-	<ItemGroup>
-	  <ProjectReference Include="..\Courier.MessagingClient\Courier.MessagingClient.csproj" />
-	  <ProjectReference Include="..\EasyIOC.CodeGen\EasyIOC.CodeGen.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="true" />
-	  <ProjectReference Include="..\EasyIOC\EasyIOC.csproj" />
-	</ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Courier.MessagingClient\Courier.MessagingClient.csproj" />
+    <ProjectReference Include="..\EasyIOC.CodeGen\EasyIOC.CodeGen.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="true" />
+    <ProjectReference Include="..\EasyIOC\EasyIOC.csproj" />
+  </ItemGroup>
 
-	<ItemGroup>
-	  <Compile Update="Login\View\LoginPage.xaml.cs">
-	    <DependentUpon>Login\View\LoginPage.xaml</DependentUpon>
-	  </Compile>
-	  <Compile Update="Login\View\PickLoginScreenPage.xaml.cs">
-	    <DependentUpon>PickLoginScreenPage.xaml</DependentUpon>
-	  </Compile>
-	</ItemGroup>
+  <ItemGroup>
+    <Compile Update="Login\View\LoginPage.xaml.cs">
+      <DependentUpon>Login\View\LoginPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Login\View\PickLoginScreenPage.xaml.cs">
+      <DependentUpon>PickLoginScreenPage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
 
-	<ItemGroup>
-	  <MauiXaml Update="Login\View\LoginPage.xaml">
-	    <SubType>Designer</SubType>
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Login\View\PickLoginScreenPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	</ItemGroup>
+  <ItemGroup>
+    <MauiXaml Update="Login\View\LoginPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </MauiXaml>
+    <MauiXaml Update="Login\View\PickLoginScreenPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </MauiXaml>
+  </ItemGroup>
 
 </Project>

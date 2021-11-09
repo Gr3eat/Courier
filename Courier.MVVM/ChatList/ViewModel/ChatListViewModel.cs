@@ -15,4 +15,6 @@ internal class ChatListViewModel : IChatListViewModel
 	{
 		_clients = clients;
 	}
+
+	public INavigation Navigation { get; set; }
 }

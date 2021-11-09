@@ -4,7 +4,7 @@ using Android.Runtime;
 using Microsoft.Maui;
 using Microsoft.Maui.Hosting;
 
-namespace Courier.Gui
+namespace Courier
 {
 	[Application]
 	public class MainApplication : MauiApplication

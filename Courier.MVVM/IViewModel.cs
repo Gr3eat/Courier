@@ -6,6 +6,7 @@ namespace Courier.MVVM;
 
 public interface IViewModel
 {
+	INavigation Navigation { get; set; }
 }
 
 
@@ -28,6 +29,7 @@ public static class ViewModelExtensions
 		var attribute = viewModel.GetType().GetCustomAttribute<ViewAttribute>()!;
 		var page = (Page)Activator.CreateInstance(attribute.PageType)!;
 		page.BindingContext = viewModel;
+		viewModel.Navigation = page.Navigation;
 		if (attribute.IsNavigation)
 			return new NavigationPage(page);
 		return page;

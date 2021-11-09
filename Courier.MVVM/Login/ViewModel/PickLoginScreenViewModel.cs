@@ -12,23 +12,23 @@ internal class PickLoginScreenViewModel : IPickLoginScreenViewModel
 {
 	private readonly ISuportedLoginsProvider _suportedLoginsProvider;
 	private readonly ILoginViewModelFactory _loginViewModelFactory;
-	private readonly INavigation _navigator;
 
 	[Factory]
-	public PickLoginScreenViewModel(ISuportedLoginsProvider suportedLoginsProvider)
+	public PickLoginScreenViewModel(ISuportedLoginsProvider suportedLoginsProvider, ILoginViewModelFactory loginViewModelFactory)
 	{
 		_suportedLoginsProvider = suportedLoginsProvider;
+		_loginViewModelFactory = loginViewModelFactory;
 		SuportedLogins = _suportedLoginsProvider.SuportedCredentialSources.Select(x => new LoginProviderViewModel(x)).ToArray();
-		foreach(var login in SuportedLogins)
+		foreach (var login in SuportedLogins)
 			login.Clicked += LoginClicked;
 	}
 
 	private async void LoginClicked(LoginProviderViewModel login)
 	{
 		var vm = _loginViewModelFactory.Create(login.Credential);
-		await _navigator.PushAsync(vm.CreatePage());
+		await Navigation.PushAsync(vm.CreatePage());
 	}
 
 	public IEnumerable<LoginProviderViewModel> SuportedLogins { get; }
-
+	public INavigation Navigation { get; set; }
 }

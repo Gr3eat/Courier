@@ -3,16 +3,18 @@ using Courier.MessagingClient.Xamarin;
 using Courier.MVVM;
 using EasyIOC;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Maui;
 using System;
 using System.Reflection;
 using System.Threading;
 using Application = Microsoft.Maui.Controls.Application;
 
-namespace Courier.Gui
+namespace Courier
 {
 	public partial class App : Application
 	{
 		private readonly IServiceProvider _serviceProvider;
+
 		public App()
 		{
 			InitializeComponent();
