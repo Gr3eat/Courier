@@ -1,4 +1,4 @@
-﻿using Courier.MessagingClient.Facebook;
+﻿using Courier.MessagingClient.Telegram;
 using Courier.MessagingClient.Maui;
 using Courier.MVVM;
 using EasyIOC;
@@ -29,7 +29,7 @@ namespace Courier
 			collection
 				.WithEasyIoc(Assembly.GetExecutingAssembly())
 				.WithMauiCredentials()
-				.WithFacebookMessenger();
+				.WithTelegram();
 			return collection.BuildServiceProvider();
 		}
 	}

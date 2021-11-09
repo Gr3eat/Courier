@@ -54,6 +54,7 @@
 	<ItemGroup>
 	  <ProjectReference Include="..\Courier.MessagingClient.Facebook\Courier.MessagingClient.Facebook.csproj" />
 	  <ProjectReference Include="..\Courier.MessagingClient.Maui\Courier.MessagingClient.Maui.csproj" />
+	  <ProjectReference Include="..\Courier.MessagingClient.Telegram\Courier.MessagingClient.Telegram.csproj" />
 	  <ProjectReference Include="..\Courier.MVVM\Courier.MVVM.csproj" />
 	  <ProjectReference Include="..\EasyIOC\EasyIOC.csproj" />
 	</ItemGroup>
